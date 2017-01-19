@@ -4,7 +4,7 @@ package N37;
  * Created by terence on 1/18/17.
  */
 public class Solution {
-    public static void main(String args[]) {
+    public static void main(String []args) {
         Solution s = new Solution();
         String b[]={".........","......3..","...18....","...7.....","....1.97.",".........","...36.1..",".........",".......2."};
         char board[][]=new char[9][9];
