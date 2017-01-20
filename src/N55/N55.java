@@ -16,6 +16,5 @@ public class N55 {
                 pos=Math.max(pos,i+nums[i]);
         }
         return pos>=nums.length-1;
-
     }
 }
