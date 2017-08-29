@@ -8,17 +8,25 @@ public class Solution {
     public List<String> res = new ArrayList<>();
     public boolean dp[][];
     public HashSet<String> set;
-    public void helper(String s, int i, String tmp){
-        if(set.contains(s.substring(0,i+1))&&dp[i+1][dp.length-1]) {
-            tmp = tmp + s.substring(0,i+1) +" ";
-            if(i+1>=s.length()) {
+    public void helper(String s, int i,int index, String tmp){
+        if(i+1==s.length()){
+            if(set.contains(s)){
+                tmp = tmp + s;
                 res.add(tmp);
-                return;
-            }else
-                helper(s.substring(i + 1, s.length()), 0, tmp);
-        }else{
-            helper(s,i+1,tmp);
+            }
+            return;
         }
+        if(set.contains(s.substring(0,i+1))&&dp[index+i+1][dp.length-1]) {
+            String kk = tmp + s.substring(0,i+1) +" ";
+            int indexx = index + i + 1;
+            if(i+1>=s.length()) {
+                res.add(kk.trim());
+                return;
+            }else{
+                helper(s.substring(i + 1, s.length()), 0, indexx, kk);
+            }
+        }
+        helper(s,i+1,index, tmp);
     }
     //add a word break 1 func(tricky)
     public List<String> wordBreak(String s, List<String> wordDict) {
@@ -49,7 +57,7 @@ public class Solution {
             }
         }
         String tmp_s = "";
-        helper(s,0,tmp_s);
+        helper(s,0,0,tmp_s);
         return res;
     }
 }
