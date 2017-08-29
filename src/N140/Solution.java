@@ -20,7 +20,12 @@ public class Solution {
             helper(s,i+1,tmp);
         }
     }
+    //add a word break 1 func(tricky)
     public List<String> wordBreak(String s, List<String> wordDict) {
+        /*
+            Firstly we need to judge whether s is breakable, which could save a lot of time!!!
+            but the code is not so elegant
+        */
         set = new HashSet<>();
         set.addAll(wordDict);
         dp = new boolean[s.length()][s.length()];
