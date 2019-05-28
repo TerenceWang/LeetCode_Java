@@ -9,6 +9,7 @@ import java.util.Stack;
 public class Solution {
     public List<Integer> postorderTraversal(TreeNode root) {
         Stack<TreeNode> stack = new Stack<>();
+
         ArrayList<Integer> list = new ArrayList<>();
         if(root==null)
             return list;
